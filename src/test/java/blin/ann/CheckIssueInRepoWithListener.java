@@ -16,7 +16,7 @@ public class CheckIssueInRepoWithListener {
     @Test
     @DisplayName("Проверяем Issues в репозитории|Чистый Selenide (с Listener)")
 
-    public void checkIssue () {
+    public void checkIssue() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         open("https://github.com/");

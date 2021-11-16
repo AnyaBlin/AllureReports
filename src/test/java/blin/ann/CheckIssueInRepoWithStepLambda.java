@@ -14,35 +14,33 @@ import static io.qameta.allure.Allure.step;
 
 public class CheckIssueInRepoWithStepLambda {
 
-private static final String REPOSITORY = "eroshenkoam/allure-example";
-    private static final int issue_number  = 74;
+    private static final String REPOSITORY = "eroshenkoam/allure-example";
+    private static final int issue_number = 74;
 
     @Test
     @DisplayName("Проверяем Issues в репозитории|Step lambda (name, () -> {})")
 
-    public void checkIssue () {
-        step("Открываем главную страницу Github", () ->{
+    public void checkIssue() {
+        step("Открываем главную страницу Github", () -> {
             open("https://github.com/");
         });
 
-        step("Ищем репозиторий" +REPOSITORY, () ->{
+        step("Ищем репозиторий" + REPOSITORY, () -> {
             $(".header-search-input").click();
             $(".header-search-input").setValue(REPOSITORY).pressEnter();
         });
 
-        step("Переходим в репозиторий" +REPOSITORY, () ->{
+        step("Переходим в репозиторий" + REPOSITORY, () -> {
             $(By.linkText(REPOSITORY)).click();
         });
 
-        step("Открываем Issues", () ->{
+        step("Открываем Issues", () -> {
             $(By.partialLinkText("Issues")).click();
         });
 
-        step("Проверяем, что существует Issue с номером" + issue_number, () ->{
-            $(withText("#"+issue_number)).should(Condition.visible);
+        step("Проверяем, что существует Issue с номером" + issue_number, () -> {
+            $(withText("#" + issue_number)).should(Condition.visible);
         });
-
-
 
 
     }

@@ -5,8 +5,9 @@ plugins {
 
 group 'org.example'
 version '1.0-SNAPSHOT'
-
-
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 allure {
     report {
         version.set("2.14.0")
@@ -21,6 +22,7 @@ allure {
         }
     }
 }
+
 
 repositories {
     mavenCentral()
