@@ -3,6 +3,7 @@ package blin.ann;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -13,6 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class CheckIssueInRepoWithListener {
 
     @Test
+    @DisplayName("Проверяем Issues в репозитории|Чистый Selenide (с Listener)")
 
     public void checkIssue () {
         SelenideLogger.addListener("allure", new AllureSelenide());
